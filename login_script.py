@@ -20,7 +20,7 @@ def login_koyeb(email, password):
         page = browser.new_page()
 
         # 访问登录页面
-        page.goto("https://webhostmost.com/login")
+        page.goto("https://client.webhostmost.com/login")
 
         # 输入邮箱和密码
         page.get_by_placeholder("Enter email").click()
@@ -41,7 +41,7 @@ def login_koyeb(email, password):
         except:
             # 如果没有找到错误消息,检查是否已经跳转到仪表板页面
             try:
-                page.wait_for_url("https://webhostmost.com/clientarea.php", timeout=5000)
+                page.wait_for_url("https://client.webhostmost.com/clientarea.php", timeout=5000)
                 return f"账号 {email} 登录成功!"
             except:
                 return f"账号 {email} 登录失败: 未能跳转到仪表板页面"
